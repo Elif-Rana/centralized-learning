@@ -11,7 +11,7 @@ In summary, the central server combines all the data from all users, extracts th
 For more information about the process and comparison of three different machine learning strategies (individual, centralized, federated), you can check 
 https://www.mdpi.com/2075-4426/12/10/1584
 
-# GET STARTED
+## Get Started
 clone the repository
 ```
 git clone https://github.com/Elif-Rana/centralized-learning.git
