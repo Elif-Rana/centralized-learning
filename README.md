@@ -12,7 +12,7 @@ For more information about the process and comparison of three different machine
 https://www.mdpi.com/2075-4426/12/10/1584
 
 # GET STARTED
->Clone the repository
+>>Clone the repository
 ```
 git clone https://github.com/Elif-Rana/centralized-learning.git
 ```
