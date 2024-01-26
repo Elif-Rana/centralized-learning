@@ -27,6 +27,7 @@ def train(net,trainloader, epochs):
         print(f"Starting epoch {epoch+1}/{epochs} ...")
         for images, labels in tqdm(trainloader):
             optimizer.zero_grad()
+            net.to(DEVICE)
             criterion(net(images.to(DEVICE)), labels.to(DEVICE)).backward()
             optimizer.step()
 
