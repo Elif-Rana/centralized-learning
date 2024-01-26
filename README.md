@@ -14,7 +14,7 @@ For more information about the process and comparison of three different machine
 Clone the repository
 git clone https://github.com/Elif-Rana/centralized-learning.git
 
-Create virtual env
+Create virtual environment
 python -m venv venv
 
 For Linux based operating systems
