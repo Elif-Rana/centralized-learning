@@ -11,7 +11,7 @@
 
 # GET STARTED
 # clone the repository
-git clone https://bitbucket.proven.com.tr/scm/flops/flops-client.git
+https://github.com/Elif-Rana/centralized-learning.git
 
 # create virtual env
 python -m venv venv
