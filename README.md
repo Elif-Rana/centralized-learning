@@ -17,16 +17,26 @@ git clone https://github.com/Elif-Rana/centralized-learning.git
 ```
 
 Create virtual environment
+```
 python -m venv venv
+```
 
 For Linux based operating systems
+```
 source venv/bin/activate
+```
 
 For Windows
+```
 .venv\Scripts\activate
+```
 
 Install requirements
+```
 pip install -r requirements.txt
+```
 
 Run
+```
 python centralized.py --epochs 3
+```
