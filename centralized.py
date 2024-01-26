@@ -7,7 +7,7 @@ from torchvision.models import mobilenet_v3_small
 
 from tqdm import tqdm
 
-DEVICE = torch.device("cpu")
+DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 parser = argparse.ArgumentParser(description="Centralized Learning")
 parser.add_argument(
