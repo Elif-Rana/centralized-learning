@@ -22,12 +22,12 @@ create virtual environment
 python -m venv venv
 ```
 
-activate virtual env. for Linux based operating systems
+activate virtual env. (Linux based operating systems)
 ```
 source venv/bin/activate
 ```
 
-activate virtual env. for Windows
+activate virtual env. (Windows)
 ```
 .venv\Scripts\activate
 ```
