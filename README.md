@@ -8,7 +8,8 @@ The steps for centralized learning are as followed.
 
 In summary, the central server combines all the data from all users, extracts the features, and then trains a machine learning model using the combined data.
 
-For more information about the process and comparison of three different machine learning strategies (individual, centralized, federated) you can check https://www.mdpi.com/2075-4426/12/10/1584
+For more information about the process and comparison of three different machine learning strategies (individual, centralized, federated) you can check 
+https://www.mdpi.com/2075-4426/12/10/1584
 
 # GET STARTED
 - Clone the repository
