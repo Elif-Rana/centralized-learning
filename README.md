@@ -11,7 +11,7 @@
 
 # GET STARTED
 # clone the repository
-https://github.com/Elif-Rana/centralized-learning.git
+git clone https://github.com/Elif-Rana/centralized-learning.git
 
 # create virtual env
 python -m venv venv
