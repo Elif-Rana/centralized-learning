@@ -45,7 +45,7 @@ def train(net,trainloader, epochs):
     for _ in range(epochs):
         for images, labels in tqdm(trainloader):
             optimizer.zero_grad()
-            import pdb; pdb.set_trace()
+            net.to(DEVICE)
             criterion(net(images.to(DEVICE)), labels.to(DEVICE)).backward()
             optimizer.step()
 
