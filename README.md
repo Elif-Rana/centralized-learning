@@ -22,3 +22,6 @@ source venv/bin/activate
 
 # Install requirements
 pip install -r requirements.txt
+
+# Run
+python centralized.py --epochs 3
