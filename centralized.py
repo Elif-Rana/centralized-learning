@@ -7,7 +7,7 @@ from torchvision.models import mobilenet_v3_small
 from tqdm import tqdm
 from datetime import datetime
 
-DEVICE = torch.device("cpu")
+DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 parser = argparse.ArgumentParser(description="Centralized Learning")
 parser.add_argument(
@@ -24,7 +24,7 @@ def train(net,trainloader, epochs):
     optimizer = torch.optim.SGD(net.parameters(), lr=0.01, momentum=0.9)
 
     for epoch in range(epochs):
-        print(f"Starting epoch {epoch+1}/{epochs}...")
+        print(f"Starting epoch {epoch+1}/{epochs} ...")
         for images, labels in tqdm(trainloader):
             optimizer.zero_grad()
             criterion(net(images.to(DEVICE)), labels.to(DEVICE)).backward()
@@ -59,7 +59,7 @@ def load_model():
 def save_model(net, accuracy, epochs,  model_filename="model", accuracy_filename="accuracy.txt"):
 
     # Generate a timestamp to identify models and their accuracy values
-    timestamp = datetime.now().strftime("%d/%m/%Y")
+    timestamp = datetime.now().strftime("%d.%m.%Y_%H.%M")
 
     model_filename = f"{model_filename}_{timestamp}.pth"
 
