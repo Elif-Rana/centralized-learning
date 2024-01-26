@@ -12,9 +12,9 @@ For more information about the process and comparison of three different machine
 
 # GET STARTED
 Clone the repository
-'''bash
+```
 git clone https://github.com/Elif-Rana/centralized-learning.git
-'''
+```
 
 Create virtual environment
 python -m venv venv
