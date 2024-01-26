@@ -24,7 +24,7 @@ def train(net,trainloader, epochs):
     optimizer = torch.optim.SGD(net.parameters(), lr=0.01, momentum=0.9)
 
     for epoch in range(epochs):
-        print(f"Starting epoch {epoch}/{epochs}...")
+        print(f"Starting epoch {epoch+1}/{epochs}...")
         for images, labels in tqdm(trainloader):
             optimizer.zero_grad()
             criterion(net(images.to(DEVICE)), labels.to(DEVICE)).backward()
