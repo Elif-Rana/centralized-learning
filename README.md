@@ -10,15 +10,15 @@
 # For more information about the process and comparison of three different machine learning strategies (individual, centralized, federated) you can check https://www.mdpi.com/2075-4426/12/10/1584
 
 # GET STARTED
-# clone the repository
+# Clone the repository
 git clone https://github.com/Elif-Rana/centralized-learning.git
 
-# create virtual env
+# Create virtual env
 python -m venv venv
-# for Linux based operating systems
+# For Linux based operating systems
 source venv/bin/activate
-# for Windows
+# For Windows
 .venv\Scripts\activate
 
-# install requirements
+# Install requirements
 pip install -r requirements.txt
