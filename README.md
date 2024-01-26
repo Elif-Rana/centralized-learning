@@ -1,3 +1,4 @@
+# Centralized Learning
 In machine learning, centralized learning refers to a training paradigm where all the data is stored and processed on a central server. This server then trains a single model that is used for all purposes.
 
 The steps for centralized learning are as followed.
