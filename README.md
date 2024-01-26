@@ -12,32 +12,32 @@ For more information about the process and comparison of three different machine
 https://www.mdpi.com/2075-4426/12/10/1584
 
 # GET STARTED
-Clone the repository
+clone the repository
 ```
 git clone https://github.com/Elif-Rana/centralized-learning.git
 ```
 
-Create virtual environment
+create virtual environment
 ```
 python -m venv venv
 ```
 
-For Linux based operating systems
+for Linux based operating systems
 ```
 source venv/bin/activate
 ```
 
-For Windows
+for Windows
 ```
 .venv\Scripts\activate
 ```
 
-Install requirements
+install requirements
 ```
 pip install -r requirements.txt
 ```
 
-Run
+run
 ```
 python centralized.py --epochs 3
 ```
