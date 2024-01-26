@@ -11,32 +11,32 @@ In summary, the central server combines all the data from all users, extracts th
 For more information about the process and comparison of three different machine learning strategies (individual, centralized, federated) you can check https://www.mdpi.com/2075-4426/12/10/1584
 
 # GET STARTED
-Clone the repository
+- Clone the repository
 ```
 git clone https://github.com/Elif-Rana/centralized-learning.git
 ```
 
-Create virtual environment
+- Create virtual environment
 ```
 python -m venv venv
 ```
 
-For Linux based operating systems
+- For Linux based operating systems
 ```
 source venv/bin/activate
 ```
 
-For Windows
+- For Windows
 ```
 .venv\Scripts\activate
 ```
 
-Install requirements
+- Install requirements
 ```
 pip install -r requirements.txt
 ```
 
-Run
+- Run
 ```
 python centralized.py --epochs 3
 ```
