@@ -4,10 +4,10 @@ from torchvision.transforms import Compose, ToTensor, Normalize
 from torch.utils.data import DataLoader
 from torchvision.datasets import CIFAR10
 from torchvision.models import mobilenet_v3_small
-
 from tqdm import tqdm
+from datetime import datetime
 
-DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+DEVICE = torch.device("cpu")
 
 parser = argparse.ArgumentParser(description="Centralized Learning")
 parser.add_argument(
@@ -17,35 +17,16 @@ parser.add_argument(
     required=False,
     help="Number of epochs"
 )
-'''
-class Net(nn.Module):
 
-    def __init__(self):
-        super(Net, self).__init__()
-        self.conv1 = nn.Conv2d(3,6,5)
-        self.pool = nn.MaxPool2d(2,2)
-        self.conv2 = nn.Conv2d(6,16,5)
-        self.fc1 = nn.Linear(16 * 5 * 5,120)
-        self.fc2 = nn.Linear(120,84)
-        self.fc3 = nn.Linear(84,10)
-
-    def forward(self,x):
-        x = self.pool(F.relu(self.conv1(x)))
-        x = self.pool(F.relu(self.conv2(x)))
-        x = x.view(-1, 16*5*5)
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        return self.fc3(x)
-'''
 def train(net,trainloader, epochs):
     criterion = torch.nn.CrossEntropyLoss()
     #Define optimizer
     optimizer = torch.optim.SGD(net.parameters(), lr=0.01, momentum=0.9)
 
-    for _ in range(epochs):
+    for epoch in range(epochs):
+        print(f"Starting epoch {epoch}/{epochs}...")
         for images, labels in tqdm(trainloader):
             optimizer.zero_grad()
-            net.to(DEVICE)
             criterion(net(images.to(DEVICE)), labels.to(DEVICE)).backward()
             optimizer.step()
 
@@ -74,7 +55,19 @@ def load_data():
 
 def load_model():
     return mobilenet_v3_small(num_classes=10)
-    #return Net().to(DEVICE)
+
+def save_model(net, accuracy, epochs,  model_filename="model", accuracy_filename="accuracy.txt"):
+
+    # Generate a timestamp to identify models and their accuracy values
+    timestamp = datetime.now().strftime("%d/%m/%Y")
+
+    model_filename = f"{model_filename}_{timestamp}.pth"
+
+    # Save the model and accuracy and epoch values
+    torch.save(net.state_dict(), model_filename)
+    with open(accuracy_filename, "a") as f:
+        f.write(f"{timestamp}: Model Filename: {model_filename} - Accuracy: {accuracy:.3f} - Epochs: {epochs}\n")
+
 
 if __name__ == "__main__":
     args = parser.parse_args()
@@ -83,3 +76,4 @@ if __name__ == "__main__":
     train(net, trainloader, epochs=args.epochs)
     loss, accuracy = test(net, testloader)
     print(f"Loss: {loss:.5f}, Accuracy: {accuracy:.3f}")
+    save_model(net, accuracy, args.epochs)
