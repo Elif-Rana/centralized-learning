@@ -15,7 +15,10 @@ git clone https://github.com/Elif-Rana/centralized-learning.git
 
 # create virtual env
 python -m venv venv
+# for Linux based operating systems
 source venv/bin/activate
+# for Windows
+.venv\Scripts\activate
 
 # install requirements
 pip install -r requirements.txt
