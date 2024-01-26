@@ -49,10 +49,11 @@ def test(net, testloader):
     return loss, accuracy
 
 def load_data():
-    trf = Compose([ToTensor(),Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
+    trf = Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
     trainset = CIFAR10("./data", train=True, download=True, transform=trf)
     testset = CIFAR10("./data", train=False, download=True, transform=trf)
     return DataLoader(trainset, batch_size=16, shuffle=True), DataLoader(testset, batch_size=64)
+
 
 def load_model():
     return mobilenet_v3_small(num_classes=10)
