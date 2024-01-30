@@ -67,7 +67,7 @@ def save_model(net, accuracy, epochs,  model_filename="model", accuracy_filename
     model_filename = f"{model_filename}_{timestamp}.pth"
 
     # Save the model and accuracy and epoch values
-
+    torch.save(net.state_dict(), model_filename)
     with open(accuracy_filename, "a") as f: # "a" is for append
         f.write(f"{timestamp}: Model Filename: {model_filename} - Accuracy: {accuracy:.3f} - Epochs: {epochs}\n")
 
@@ -76,9 +76,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     net = load_model()
     trainloader, testloader = load_data()
-
     train(net, trainloader, epochs=args.epochs)
     loss, accuracy = test(net, testloader)
-
     print(f"Loss: {loss:.5f}, Accuracy: {accuracy:.3f}")
     save_model(net, accuracy, args.epochs)
