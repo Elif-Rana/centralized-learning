@@ -50,10 +50,11 @@ def test(net, testloader):
 
 def load_data():
     trf = Compose([ToTensor(),Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))])
+
+    # Split the data
     trainset = CIFAR10("./data", train=True, download=True, transform=trf)
     testset = CIFAR10("./data", train=False, download=True, transform=trf)
     return DataLoader(trainset, batch_size=16, shuffle=True), DataLoader(testset, batch_size=64)
-
 
 def load_model():
     return mobilenet_v3_small(num_classes=10)
@@ -66,8 +67,8 @@ def save_model(net, accuracy, epochs,  model_filename="model", accuracy_filename
     model_filename = f"{model_filename}_{timestamp}.pth"
 
     # Save the model and accuracy and epoch values
-    torch.save(net.state_dict(), model_filename)
-    with open(accuracy_filename, "a") as f:
+
+    with open(accuracy_filename, "a") as f: # "a" is for append
         f.write(f"{timestamp}: Model Filename: {model_filename} - Accuracy: {accuracy:.3f} - Epochs: {epochs}\n")
 
 
@@ -75,7 +76,9 @@ if __name__ == "__main__":
     args = parser.parse_args()
     net = load_model()
     trainloader, testloader = load_data()
+
     train(net, trainloader, epochs=args.epochs)
     loss, accuracy = test(net, testloader)
+
     print(f"Loss: {loss:.5f}, Accuracy: {accuracy:.3f}")
     save_model(net, accuracy, args.epochs)
