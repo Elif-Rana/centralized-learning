@@ -13,6 +13,8 @@ DEVICE = torch.device("cuda"
     if torch.backends.mps.is_available()
     else "cpu")
 
+print(f"Using {device} device")
+
 parser = argparse.ArgumentParser(description="Centralized Learning")
 parser.add_argument(
     "--epochs",
