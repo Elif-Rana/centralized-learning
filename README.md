@@ -23,7 +23,7 @@ python -m venv venv
 source venv/bin/activate
 
 #activate virtual env. (Windows)
-.venv\Scripts\activate
+venv\Scripts\activate
 
 #install requirements
 pip install -r requirements.txt
